@@ -8,8 +8,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 # Enable logging
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
-# Bot token and channel IDs configuration
-TOKEN = ''
+# Bot channel IDs configuration
 CHANNEL_IDS = ['-1001796172710', '-1001755556743']  # Lista de canales
 WELCOME_PHOTO = 'src/image.jpg'  # Ruta a la foto de bienvenida
 ADMIN_CHAT_ID = 1618347551  # Tu propio chat ID (cambié de string a int para uso directo)
@@ -189,6 +188,7 @@ async def send_reminders(context: CallbackContext) -> None:
 
 # Main function to start the bot
 def main() -> None:
+    TOKEN = os.getenv('BOT_TOKEN', '')
     application = Application.builder().token(TOKEN).build()
 
     application.add_handler(CommandHandler("start", start))

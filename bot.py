@@ -8,6 +8,8 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 
 # Enable logging
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logger = logging.getLogger(__name__)
 
 # Bot channel IDs configuration
 CHANNEL_IDS = ['-1001796172710', '-1001755556743']  # Lista de canales
